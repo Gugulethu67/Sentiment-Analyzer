@@ -351,7 +351,6 @@ export default function SentimentAnalyzer() {
         {/* Footer */}
         <div className="mt-8 text-center text-gray-400 text-sm">
           <p>Built with Next.js, React, Hugging Face, and Supabase</p>
-          <p className="mt-1">Perfect for your portfolio! 🌟</p>
         </div>
       </div>
 
