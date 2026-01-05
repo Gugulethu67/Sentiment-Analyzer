@@ -2,13 +2,13 @@
 
 A modern, AI-powered sentiment analysis application built with Next.js and Hugging Face.
 
-## ✨ Features
+## Features
 
-- 🤖 Real-time sentiment analysis using AI
-- 📊 Interactive data visualizations
-- 💾 Optional persistent storage with Supabase
-- 🎨 Beautiful, responsive UI
-- ⚡ Fast and optimized
+-  Real-time sentiment analysis using AI
+-  Interactive data visualizations
+-  Optional persistent storage with Supabase
+-  Beautiful, responsive UI
+-  Fast and optimized
 
 ## 🚀 Getting Started
 
