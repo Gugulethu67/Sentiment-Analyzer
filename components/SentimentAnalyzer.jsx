@@ -77,7 +77,7 @@ export default function SentimentAnalyzer() {
       }
 
       setResult(analysisResult)
-      
+      console.log('Analysis Result:', analysisResult)
       // Add to local history
       setHistory(prev => [analysisResult, ...prev.slice(0, 9)])
       
@@ -143,7 +143,7 @@ export default function SentimentAnalyzer() {
             <h1 className="text-5xl font-bold text-white">Sentiment Analyzer</h1>
           </div>
           <p className="text-gray-300 text-lg">
-            Powered by Hugging Face AI • Analyze emotions in text instantly
+            Analyze emotions in text instantly
           </p>
         </div>
 

@@ -1,11 +1,10 @@
 import { NextResponse } from 'next/server'
 
-// -------------- ENV CONFIG ----------------
 const HF_API_KEY = process.env.HUGGING_FACE_API_KEY
 const HF_MODEL_SLUG =
   process.env.HF_MODEL_SLUG || 'nlptown/bert-base-multilingual-uncased-sentiment'
 
-// -------------- API ROUTE -----------------
+
 export async function POST(request) {
   try {
     const { text } = await request.json()
@@ -21,9 +20,8 @@ export async function POST(request) {
       )
     }
 
-    // ---- Call Hugging Face API ----
     const response = await fetch(
-      `https://api-inference.huggingface.co/models/${HF_MODEL_SLUG}`,
+      `https://router.huggingface.co/hf-inference/models/${HF_MODEL_SLUG}`,
       {
         method: 'POST',
         headers: {
@@ -34,7 +32,6 @@ export async function POST(request) {
       }
     )
 
-    // Handle loading or model errors
     if (!response.ok) {
       const errorText = await response.text()
       console.error('Hugging Face API error:', errorText)
@@ -52,13 +49,12 @@ export async function POST(request) {
       )
     }
 
-    // ---- Process Model Response ----
     const data = await response.json()
 
-    // The nlptown model returns [[{label,score}...]]
+
     const sentimentData = Array.isArray(data[0]) ? data[0] : data
 
-    // Pick the label with the highest score
+ 
     const top = sentimentData.reduce(
       (max, item) => (item.score > max.score ? item : max),
       sentimentData[0]
@@ -81,8 +77,6 @@ export async function POST(request) {
   }
 }
 
-// Optional: handle preflight CORS requests
 export async function OPTIONS() {
   return NextResponse.json({}, { status: 200 })
 }
- 
